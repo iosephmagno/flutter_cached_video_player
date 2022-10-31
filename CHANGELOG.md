@@ -42,3 +42,7 @@ Add example and increase pub score.
 
 Update everything for android exoplayer, update flutter dependencies,
 re-publish to pub.dev because author inactive
+
+## 2.1.1
+
+also slightly update ios stuff and fix podspec to fork
