@@ -37,3 +37,8 @@ Fix some issues reported on Github.
 ## 2.0.3
 
 Add example and increase pub score.
+
+## 2.1.0
+
+Update everything for android exoplayer, update flutter dependencies,
+re-publish to pub.dev because author inactive
