@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:cached_video_player_fork/cached_video_player.dart';
+import 'package:z_cached_video_player_fork/z_cached_video_player_fork.dart';
 
 void main() {
   runApp(const MyApp());
@@ -49,16 +49,27 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  late CachedVideoPlayerController controller;
+  late final CachedVideoPlayerController controller =
+      CachedVideoPlayerController.network(
+    "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+    formatHint: VideoFormat.other,
+    videoPlayerOptions: VideoPlayerOptions(mixWithOthers: true),
+  );
+
   @override
   void initState() {
-    controller = CachedVideoPlayerController.network(
-        "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4");
-    controller.initialize().then((value) {
-      controller.play();
-      setState(() {});
-    });
     super.initState();
+    _initializeController(controller);
+  }
+
+  Future<void> _initializeController(
+      CachedVideoPlayerController controller) async {
+    await controller.initialize().then((value) {
+      controller.play();
+    });
+    if (mounted) {
+      setState(() {});
+    }
   }
 
   @override
@@ -82,5 +93,11 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: CachedVideoPlayer(controller))
               : const CircularProgressIndicator()), // This trailing comma makes auto-formatting nicer for build methods.
     );
+  }
+
+  @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
   }
 }
