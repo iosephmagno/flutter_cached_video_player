@@ -46,3 +46,7 @@ re-publish to pub.dev because author inactive
 ## 2.1.1
 
 also slightly update ios stuff and fix podspec to fork
+
+## 2.1.2
+
+Change message channel data

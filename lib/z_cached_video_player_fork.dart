@@ -15,7 +15,7 @@ export 'src/interface/video_player_platform_interface.dart'
 import 'src/closed_caption_file.dart';
 export 'src/closed_caption_file.dart';
 
-final VideoPlayerPlatform _videoPlayerPlatform = VideoPlayerPlatform.instance
+final CachedVideoPlayerPlatform _videoPlayerPlatform = CachedVideoPlayerPlatform.instance
   // This will clear all open videos on the platform when a full restart is
   // performed.
   ..init();

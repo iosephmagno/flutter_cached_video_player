@@ -14,24 +14,24 @@ import 'method_channel_video_player.dart';
 /// does not consider newly added methods to be breaking changes. Extending this class
 /// (using `extends`) ensures that the subclass will get the default implementation, while
 /// platform implementations that `implements` this interface will be broken by newly added
-/// [VideoPlayerPlatform] methods.
-abstract class VideoPlayerPlatform extends PlatformInterface {
+/// [CachedVideoPlayerPlatform] methods.
+abstract class CachedVideoPlayerPlatform extends PlatformInterface {
   /// Constructs a VideoPlayerPlatform.
-  VideoPlayerPlatform() : super(token: _token);
+  CachedVideoPlayerPlatform() : super(token: _token);
 
   static final Object _token = Object();
 
-  static VideoPlayerPlatform _instance = MethodChannelVideoPlayer();
+  static CachedVideoPlayerPlatform _instance = MethodChannelVideoPlayer();
 
-  /// The default instance of [VideoPlayerPlatform] to use.
+  /// The default instance of [CachedVideoPlayerPlatform] to use.
   ///
   /// Defaults to [MethodChannelVideoPlayer].
-  static VideoPlayerPlatform get instance => _instance;
+  static CachedVideoPlayerPlatform get instance => _instance;
 
   /// Platform-specific plugins should override this with their own
-  /// platform-specific class that extends [VideoPlayerPlatform] when they
+  /// platform-specific class that extends [CachedVideoPlayerPlatform] when they
   /// register themselves.
-  static set instance(VideoPlayerPlatform instance) {
+  static set instance(CachedVideoPlayerPlatform instance) {
     PlatformInterface.verify(instance, _token);
     _instance = instance;
   }

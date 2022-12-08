@@ -10,12 +10,12 @@ import 'package:flutter/widgets.dart';
 import 'messages.g.dart';
 import 'video_player_platform_interface.dart';
 
-/// An implementation of [VideoPlayerPlatform] that uses method channels.
+/// An implementation of [CachedVideoPlayerPlatform] that uses method channels.
 ///
 /// This is the default implementation, for compatibility with existing
 /// third-party implementations. It is not used by other implementations in
 /// this repository.
-class MethodChannelVideoPlayer extends VideoPlayerPlatform {
+class MethodChannelVideoPlayer extends CachedVideoPlayerPlatform {
   final VideoPlayerApi _api = VideoPlayerApi();
 
   @override
