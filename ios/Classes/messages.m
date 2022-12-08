@@ -210,7 +210,7 @@ static NSDictionary<NSString *, id> *wrapResult(NSDictionary *result, FlutterErr
 void CachedVideoPlayerApiSetup(id<FlutterBinaryMessenger> binaryMessenger, id<CachedVideoPlayerApi> api) {
   {
     FlutterBasicMessageChannel *channel = [FlutterBasicMessageChannel
-        messageChannelWithName:@"dev.flutter.pigeon.VideoPlayerApi.initialize"
+        messageChannelWithName:@"dev.flutter.pigeon.CachedVideoPlayerApi.initialize"
                binaryMessenger:binaryMessenger];
     if (api) {
       [channel setMessageHandler:^(id _Nullable message, FlutterReply callback) {
@@ -224,7 +224,7 @@ void CachedVideoPlayerApiSetup(id<FlutterBinaryMessenger> binaryMessenger, id<Ca
   }
   {
     FlutterBasicMessageChannel *channel = [FlutterBasicMessageChannel
-        messageChannelWithName:@"dev.flutter.pigeon.VideoPlayerApi.create"
+        messageChannelWithName:@"dev.flutter.pigeon.CachedVideoPlayerApi.create"
                binaryMessenger:binaryMessenger];
     if (api) {
       [channel setMessageHandler:^(id _Nullable message, FlutterReply callback) {
@@ -239,7 +239,7 @@ void CachedVideoPlayerApiSetup(id<FlutterBinaryMessenger> binaryMessenger, id<Ca
   }
   {
     FlutterBasicMessageChannel *channel = [FlutterBasicMessageChannel
-        messageChannelWithName:@"dev.flutter.pigeon.VideoPlayerApi.dispose"
+        messageChannelWithName:@"dev.flutter.pigeon.CachedVideoPlayerApi.dispose"
                binaryMessenger:binaryMessenger];
     if (api) {
       [channel setMessageHandler:^(id _Nullable message, FlutterReply callback) {
@@ -254,7 +254,7 @@ void CachedVideoPlayerApiSetup(id<FlutterBinaryMessenger> binaryMessenger, id<Ca
   }
   {
     FlutterBasicMessageChannel *channel = [FlutterBasicMessageChannel
-        messageChannelWithName:@"dev.flutter.pigeon.VideoPlayerApi.setLooping"
+        messageChannelWithName:@"dev.flutter.pigeon.CachedVideoPlayerApi.setLooping"
                binaryMessenger:binaryMessenger];
     if (api) {
       [channel setMessageHandler:^(id _Nullable message, FlutterReply callback) {
@@ -269,7 +269,7 @@ void CachedVideoPlayerApiSetup(id<FlutterBinaryMessenger> binaryMessenger, id<Ca
   }
   {
     FlutterBasicMessageChannel *channel = [FlutterBasicMessageChannel
-        messageChannelWithName:@"dev.flutter.pigeon.VideoPlayerApi.setVolume"
+        messageChannelWithName:@"dev.flutter.pigeon.CachedVideoPlayerApi.setVolume"
                binaryMessenger:binaryMessenger];
     if (api) {
       [channel setMessageHandler:^(id _Nullable message, FlutterReply callback) {
@@ -284,7 +284,7 @@ void CachedVideoPlayerApiSetup(id<FlutterBinaryMessenger> binaryMessenger, id<Ca
   }
   {
     FlutterBasicMessageChannel *channel = [FlutterBasicMessageChannel
-        messageChannelWithName:@"dev.flutter.pigeon.VideoPlayerApi.setPlaybackSpeed"
+        messageChannelWithName:@"dev.flutter.pigeon.CachedVideoPlayerApi.setPlaybackSpeed"
                binaryMessenger:binaryMessenger];
     if (api) {
       [channel setMessageHandler:^(id _Nullable message, FlutterReply callback) {
@@ -299,7 +299,7 @@ void CachedVideoPlayerApiSetup(id<FlutterBinaryMessenger> binaryMessenger, id<Ca
   }
   {
     FlutterBasicMessageChannel *channel =
-        [FlutterBasicMessageChannel messageChannelWithName:@"dev.flutter.pigeon.VideoPlayerApi.play"
+        [FlutterBasicMessageChannel messageChannelWithName:@"dev.flutter.pigeon.CachedVideoPlayerApi.play"
                                            binaryMessenger:binaryMessenger];
     if (api) {
       [channel setMessageHandler:^(id _Nullable message, FlutterReply callback) {
@@ -314,7 +314,7 @@ void CachedVideoPlayerApiSetup(id<FlutterBinaryMessenger> binaryMessenger, id<Ca
   }
   {
     FlutterBasicMessageChannel *channel = [FlutterBasicMessageChannel
-        messageChannelWithName:@"dev.flutter.pigeon.VideoPlayerApi.position"
+        messageChannelWithName:@"dev.flutter.pigeon.CachedVideoPlayerApi.position"
                binaryMessenger:binaryMessenger];
     if (api) {
       [channel setMessageHandler:^(id _Nullable message, FlutterReply callback) {
@@ -329,7 +329,7 @@ void CachedVideoPlayerApiSetup(id<FlutterBinaryMessenger> binaryMessenger, id<Ca
   }
   {
     FlutterBasicMessageChannel *channel = [FlutterBasicMessageChannel
-        messageChannelWithName:@"dev.flutter.pigeon.VideoPlayerApi.seekTo"
+        messageChannelWithName:@"dev.flutter.pigeon.CachedVideoPlayerApi.seekTo"
                binaryMessenger:binaryMessenger];
     if (api) {
       [channel setMessageHandler:^(id _Nullable message, FlutterReply callback) {
@@ -344,7 +344,7 @@ void CachedVideoPlayerApiSetup(id<FlutterBinaryMessenger> binaryMessenger, id<Ca
   }
   {
     FlutterBasicMessageChannel *channel = [FlutterBasicMessageChannel
-        messageChannelWithName:@"dev.flutter.pigeon.VideoPlayerApi.pause"
+        messageChannelWithName:@"dev.flutter.pigeon.CachedVideoPlayerApi.pause"
                binaryMessenger:binaryMessenger];
     if (api) {
       [channel setMessageHandler:^(id _Nullable message, FlutterReply callback) {
@@ -359,7 +359,7 @@ void CachedVideoPlayerApiSetup(id<FlutterBinaryMessenger> binaryMessenger, id<Ca
   }
   {
     FlutterBasicMessageChannel *channel = [FlutterBasicMessageChannel
-        messageChannelWithName:@"dev.flutter.pigeon.VideoPlayerApi.setMixWithOthers"
+        messageChannelWithName:@"dev.flutter.pigeon.CachedVideoPlayerApi.setMixWithOthers"
                binaryMessenger:binaryMessenger];
     if (api) {
       [channel setMessageHandler:^(id _Nullable message, FlutterReply callback) {
