@@ -7,22 +7,22 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:video_player/video_player.dart';
 import 'src/interface/video_player_platform_interface.dart';
+import 'package:video_player_platform_interface/video_player_platform_interface.dart';
 
-export 'src/interface/video_player_platform_interface.dart'
+export 'package:video_player_platform_interface/video_player_platform_interface.dart'
     show DurationRange, DataSourceType, VideoFormat, VideoPlayerOptions;
 
-import 'src/closed_caption_file.dart';
-export 'src/closed_caption_file.dart';
-
-final CachedVideoPlayerPlatform _videoPlayerPlatform = CachedVideoPlayerPlatform.instance
-  // This will clear all open videos on the platform when a full restart is
-  // performed.
-  ..init();
+final CachedVideoPlayerPlatform _videoPlayerPlatform =
+    CachedVideoPlayerPlatform.instance
+// This will clear all open videos on the platform when a full restart is
+// performed.
+      ..init();
 
 /// The duration, current position, buffering state, error state and settings
 /// of a [CachedVideoPlayerController].
-class CachedVideoPlayerValue {
+class CachedVideoPlayerValue extends VideoPlayerValue {
   /// Constructs a video with the given values. Only [duration] is required. The
   /// rest will initialize with default values when unset.
   CachedVideoPlayerValue({
@@ -38,7 +38,20 @@ class CachedVideoPlayerValue {
     this.volume = 1.0,
     this.playbackSpeed = 1.0,
     this.errorDescription,
-  });
+  }) : super(
+          duration: duration,
+          size: size,
+          position: position,
+          caption: caption,
+          buffered: buffered,
+          isInitialized: isInitialized,
+          isPlaying: isPlaying,
+          isLooping: isLooping,
+          isBuffering: isBuffering,
+          volume: volume,
+          playbackSpeed: playbackSpeed,
+          errorDescription: errorDescription,
+        );
 
   /// Returns an instance for a video that hasn't been loaded.
   CachedVideoPlayerValue.uninitialized()
@@ -117,7 +130,7 @@ class CachedVideoPlayerValue {
 
   /// Returns a new instance that has the same values as this current instance,
   /// except for any overrides passed in as arguments to [copyWidth].
-  CachedVideoPlayerValue copyWith({
+  CachedVideoPlayerValue copyWithCachedValue({
     Duration? duration,
     Size? size,
     Duration? position,
@@ -322,7 +335,7 @@ class CachedVideoPlayerController
 
       switch (event.eventType) {
         case VideoEventType.initialized:
-          value = value.copyWith(
+          value = value.copyWithCachedValue(
             duration: event.duration,
             size: event.size,
             isInitialized: event.duration != null,
@@ -333,17 +346,17 @@ class CachedVideoPlayerController
           _applyPlayPause();
           break;
         case VideoEventType.completed:
-          value = value.copyWith(isPlaying: false, position: value.duration);
+          value = value.copyWithCachedValue(isPlaying: false, position: value.duration);
           _timer?.cancel();
           break;
         case VideoEventType.bufferingUpdate:
-          value = value.copyWith(buffered: event.buffered);
+          value = value.copyWithCachedValue(buffered: event.buffered);
           break;
         case VideoEventType.bufferingStart:
-          value = value.copyWith(isBuffering: true);
+          value = value.copyWithCachedValue(isBuffering: true);
           break;
         case VideoEventType.bufferingEnd:
-          value = value.copyWith(isBuffering: false);
+          value = value.copyWithCachedValue(isBuffering: false);
           break;
         case VideoEventType.unknown:
           break;
@@ -354,7 +367,7 @@ class CachedVideoPlayerController
       if (_closedCaptionFile == null) {
         _closedCaptionFile = await closedCaptionFile;
       }
-      value = value.copyWith(caption: _getCaptionAt(value.position));
+      value = value.copyWithCachedValue(caption: _getCaptionAt(value.position));
     }
 
     void errorListener(Object obj) {
@@ -394,20 +407,20 @@ class CachedVideoPlayerController
   /// has been sent to the platform, not when playback itself is totally
   /// finished.
   Future<void> play() async {
-    value = value.copyWith(isPlaying: true);
+    value = value.copyWithCachedValue(isPlaying: true);
     await _applyPlayPause();
   }
 
   /// Sets whether or not the video should loop after playing once. See also
   /// [CachedVideoPlayerValue.isLooping].
   Future<void> setLooping(bool looping) async {
-    value = value.copyWith(isLooping: looping);
+    value = value.copyWithCachedValue(isLooping: looping);
     await _applyLooping();
   }
 
   /// Pauses the video.
   Future<void> pause() async {
-    value = value.copyWith(isPlaying: false);
+    value = value.copyWithCachedValue(isPlaying: false);
     await _applyPlayPause();
   }
 
@@ -505,7 +518,7 @@ class CachedVideoPlayerController
   /// [volume] indicates a value between 0.0 (silent) and 1.0 (full volume) on a
   /// linear scale.
   Future<void> setVolume(double volume) async {
-    value = value.copyWith(volume: volume.clamp(0.0, 1.0));
+    value = value.copyWithCachedValue(volume: volume.clamp(0.0, 1.0));
     await _applyVolume();
   }
 
@@ -539,7 +552,7 @@ class CachedVideoPlayerController
       );
     }
 
-    value = value.copyWith(playbackSpeed: speed);
+    value = value.copyWithCachedValue(playbackSpeed: speed);
     await _applyPlaybackSpeed();
   }
 
@@ -566,8 +579,8 @@ class CachedVideoPlayerController
   }
 
   void _updatePosition(Duration position) {
-    value = value.copyWith(position: position);
-    value = value.copyWith(caption: _getCaptionAt(position));
+    value = value.copyWithCachedValue(position: position);
+    value = value.copyWithCachedValue(caption: _getCaptionAt(position));
   }
 }
 

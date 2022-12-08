@@ -9,6 +9,7 @@ import 'package:flutter/widgets.dart';
 
 import 'messages.g.dart';
 import 'video_player_platform_interface.dart';
+import 'package:video_player_platform_interface/video_player_platform_interface.dart';
 
 /// An implementation of [CachedVideoPlayerPlatform] that uses method channels.
 ///
