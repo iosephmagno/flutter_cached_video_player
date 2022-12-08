@@ -50,3 +50,7 @@ also slightly update ios stuff and fix podspec to fork
 ## 2.1.2
 
 Change message channel data
+
+## 2.1.2+1
+
+Remove a video player library
