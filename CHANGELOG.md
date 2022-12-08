@@ -54,3 +54,7 @@ Change message channel data
 ## 2.1.2+1
 
 Remove a video player library
+
+## 2.1.2+2
+
+Change a homepage
