@@ -15,11 +15,6 @@ so i updated it to
 - fixed errors
 - followed video_player package for guidance
 
-If a video-player library conflicts,
-Library names are in alphabetical order, so you can overwrite them by prefixing 'z'.
-Android `GeneratedPluginRegistrant.java`
-iOS `GeneratedPluginRegistrant.m`
-
 
 ## Installation
 

@@ -66,3 +66,7 @@ Change a homepage
 ## 2.1.3
 
 With Video player dependency
+
+## 2.4.9
+
+Update a Video player same version 

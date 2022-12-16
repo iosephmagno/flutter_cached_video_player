@@ -29,7 +29,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  z_cached_video_player_fork:
+  cached_video_player:
     path: ../
 
   # The following adds the Cupertino Icons font to your application.

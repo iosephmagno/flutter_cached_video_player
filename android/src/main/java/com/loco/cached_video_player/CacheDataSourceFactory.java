@@ -1,4 +1,4 @@
-package com.lazyarts.vikram.cached_video_player;
+package com.loco.cached_video_player;
 
 import android.content.Context;
 

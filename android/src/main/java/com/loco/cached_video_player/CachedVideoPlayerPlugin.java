@@ -2,7 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-package com.lazyarts.vikram.cached_video_player;
+package com.loco.cached_video_player;
 
 import android.content.Context;
 import android.os.Build;
@@ -12,14 +12,14 @@ import io.flutter.Log;
 import io.flutter.embedding.engine.plugins.FlutterPlugin;
 import io.flutter.plugin.common.BinaryMessenger;
 import io.flutter.plugin.common.EventChannel;
-import com.lazyarts.vikram.cached_video_player.Messages.CreateMessage;
-import com.lazyarts.vikram.cached_video_player.Messages.LoopingMessage;
-import com.lazyarts.vikram.cached_video_player.Messages.MixWithOthersMessage;
-import com.lazyarts.vikram.cached_video_player.Messages.PlaybackSpeedMessage;
-import com.lazyarts.vikram.cached_video_player.Messages.PositionMessage;
-import com.lazyarts.vikram.cached_video_player.Messages.TextureMessage;
-import com.lazyarts.vikram.cached_video_player.Messages.VideoPlayerApi;
-import com.lazyarts.vikram.cached_video_player.Messages.VolumeMessage;
+import com.loco.cached_video_player.Messages.CreateMessage;
+import com.loco.cached_video_player.Messages.LoopingMessage;
+import com.loco.cached_video_player.Messages.MixWithOthersMessage;
+import com.loco.cached_video_player.Messages.PlaybackSpeedMessage;
+import com.loco.cached_video_player.Messages.PositionMessage;
+import com.loco.cached_video_player.Messages.TextureMessage;
+import com.loco.cached_video_player.Messages.VideoPlayerApi;
+import com.loco.cached_video_player.Messages.VolumeMessage;
 import io.flutter.view.TextureRegistry;
 import java.security.KeyManagementException;
 import java.security.NoSuchAlgorithmException;

@@ -15,6 +15,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.1.0"
+  cached_video_player:
+    dependency: "direct main"
+    description:
+      path: ".."
+      relative: true
+    source: path
+    version: "2.4.9"
   characters:
     dependency: transitive
     description:
@@ -195,7 +202,7 @@ packages:
       name: video_player
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.4.8"
+    version: "2.4.9"
   video_player_android:
     dependency: transitive
     description:
@@ -224,13 +231,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.12"
-  z_cached_video_player_fork:
-    dependency: "direct main"
-    description:
-      path: ".."
-      relative: true
-    source: path
-    version: "2.1.3"
 sdks:
   dart: ">=2.17.0-0 <3.0.0"
   flutter: ">=2.10.0"
