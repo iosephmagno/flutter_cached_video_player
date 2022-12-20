@@ -18,7 +18,7 @@ so i updated it to
 
 ## Installation
 
-First, add `cached_video_player` as a [dependency in your pubspec.yaml file](https://flutter.io/platform-plugins/).
+First, add `video_cached_player` as a [dependency in your pubspec.yaml file](https://flutter.io/platform-plugins/).
 
 Follow the Android and iOS configuration steps of the official [video_player](https://pub.dev/packages/video_player#installation) package. This plugin won't work in Desktop.
 

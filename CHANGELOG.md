@@ -70,3 +70,7 @@ With Video player dependency
 ## 2.4.9
 
 Update a Video player same version 
+
+## 2.4.9+1
+
+Fix a package issue
